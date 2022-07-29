@@ -14,6 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.gscapin.blogappcompose.Navigation.BlogScreens
 import com.gscapin.blogappcompose.components.AdjustSystemBarColor
+import com.gscapin.blogappcompose.components.CreateAccountButton
+import com.gscapin.blogappcompose.components.LoginButton
 
 @Composable
 fun WelcomeScreen(navController: NavController) {
@@ -36,26 +38,7 @@ fun WelcomeScreen(navController: NavController) {
     }
 }
 
-@Composable
-fun LoginButton(onClick: () -> Unit) {
-    OutlinedButton(
-        onClick = onClick, modifier = Modifier.fillMaxWidth().padding(10.dp),
-        shape = RectangleShape
-    ) {
-        Text(text = "LOGIN", fontFamily = FontFamily.SansSerif)
-    }
-}
 
-@Composable
-fun CreateAccountButton(onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth().padding(10.dp),
-        shape = RectangleShape
-    ) {
-        Text(text = "CREATE ACCOUNT", fontFamily = FontFamily.SansSerif)
-    }
-}
 
 @Composable
 fun WelcomeText() {
