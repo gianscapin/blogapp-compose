@@ -19,11 +19,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import com.gscapin.blogappcompose.Navigation.BlogScreens
 import com.gscapin.blogappcompose.components.*
 
 @Composable
-fun CreateAccountScreen(navController: NavController) {
+fun CreateAccountScreen(navController: NavController, viewModel: AuthViewModel) {
     Scaffold(
         topBar = {
             TopBarAccess(navController, "Create account")
@@ -54,9 +57,9 @@ fun CreateAccountScreen(navController: NavController) {
                     modifier = Modifier.padding(20.dp)
                 ) {
                     CreateAccountForm() { email, pass, name ->
-                        Log.d("email", email)
-                        Log.d("password", pass)
-                        Log.d("name", name)
+                        viewModel.signUp(email = email, password = pass, username = name){
+                            navController.navigate(BlogScreens.HomeScreen.name)
+                        }
                     }
                 }
             }
